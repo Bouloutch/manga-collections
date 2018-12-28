@@ -1,0 +1,27 @@
+<ul>
+    <li><a href='/collections'>Mes collections</a></li>
+    <li><a href='/locations'>Mes lieux</a></li>
+    <li><a href='/mangas'>Mes mangas</a></li>
+</ul>
+
+<form action="/mangas/add/" method="post">
+    Que dois-je faire ? 
+    <label for="manga">Nom du manga :</label>
+    <input type="text" name="manga" id="textInput" autofocus>
+    <label for="collection">Collection :</label>
+    <select name="collection">
+        <option value="naruto">Naruto</option>
+        <option value="onepiece">One Piece</option>
+        <% 
+        for (var i = 0; i<collections.length; i++) { %>
+            <option><%= collections[i].name %></option>
+            <% } 
+        %>
+    </select>
+    <label for="location">Location :</label>
+    <select name="location">
+        <option value="paris">Paris</option>
+        <option value="tokyo">Tokyo</option>
+    </select>
+    <button type="submit" id="validate">Valider</button>
+</form>

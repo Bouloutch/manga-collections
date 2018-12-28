@@ -1,0 +1,18 @@
+<ul>
+    <li><a href='/collections'>Mes collections</a></li>
+    <li><a href='/locations'>Mes lieux</a></li>
+    <li><a href='/mangas'>Mes mangas</a></li>
+</ul>
+
+<ul>
+    <% 
+    for (var i = 0; i<collections.length; i++) { %>
+        <li><a href="/collections/delete/<%= i %>">💥</a><%= collections[i] %></li>
+        <% } 
+    %>
+</ul>
+
+<form action="/collections/add/" method="post">
+    Que dois-je faire ? <input type="text" name="collection" id="textInput" autofocus>
+    <button type="submit" id="validate">Valider</button>
+</form>

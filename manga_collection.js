@@ -170,6 +170,7 @@ app.post('/collections/add', urlencodedParser, function (req, res) {
     
 })
 
+//add a manga to a collection directly from this collection
 app.post('/collections/mangas/add', urlencodedParser, function (req, res) {
     fs.readFile('data.json', 'utf8', function readFileCallback(err, data){
         if (err){
@@ -208,6 +209,7 @@ app.get('/collections/delete/:id', function (req, res) {
     });
 })
 
+//filter by collection when clicking on it
 app.get('/collections/filter/:name', function (req, res) {
     fs.readFile('data.json', 'utf8', function readFileCallback(err, data){
         if (err){
@@ -223,7 +225,7 @@ app.get('/collections/filter/:name', function (req, res) {
     }});
 })
 
-
+//locations
 app.get('/locations', function (req, res) {
     fs.readFile('data.json', 'utf8', function readFileCallback(err, data){
         if (err){
@@ -253,6 +255,7 @@ app.post('/locations/add', urlencodedParser, function (req, res) {
     
 })
 
+//add manga to a location directly from this location
 app.post('/locations/mangas/add', urlencodedParser, function (req, res) {
     fs.readFile('data.json', 'utf8', function readFileCallback(err, data){
         if (err){
@@ -291,6 +294,7 @@ app.get('/locations/delete/:id', function (req, res) {
     });
 })
 
+//filter by location when clicking on it
 app.get('/locations/filter/:name', function (req, res) {
     fs.readFile('data.json', 'utf8', function readFileCallback(err, data){
         if (err){

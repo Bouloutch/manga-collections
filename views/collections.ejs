@@ -1,18 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Manga Collections</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+<h1>Mes Collections</h1>
+
 <ul>
     <li><a href='/collections'>Mes collections</a></li>
     <li><a href='/locations'>Mes lieux</a></li>
     <li><a href='/mangas'>Mes mangas</a></li>
 </ul>
 
-<ul>
+<!-- <ul>
     <% 
     for (var i = 0; i<collections.length; i++) { %>
-        <li><a href="/collections/delete/<%= i %>">💥</a><%= collections[i] %></li>
+        <li><a href="/collections/delete/<%= i %>">💥</a><a href="/collections/filter/<%= collections[i].name %>"><%= collections[i].name %></a></li>
         <% } 
     %>
-</ul>
+</ul> -->
 
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Nombre de tomes</th>
+    </tr>
+    <% 
+    for (var i = 0; i<collections.length; i++) { %>
+        <tr>
+            <td><%= collections[i].id %></td>
+            <td><a href="/collections/filter/<%= collections[i].name %>"><%= collections[i].name %></a></td>
+            <td><%= collections[i].count %></td>
+        </tr>
+        <% } 
+    %>
+</table>
+
+<div>Ajouter une collection :</div>
 <form action="/collections/add/" method="post">
-    Que dois-je faire ? <input type="text" name="collection" id="textInput" autofocus>
+    <input type="text" name="collection" id="textInput" autofocus>
     <button type="submit" id="validate">Valider</button>
 </form>
+
+</body>
+
+</html>

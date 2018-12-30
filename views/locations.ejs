@@ -1,10 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Manga Collections</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+<h1>Mes lieux</h1>
+
 <ul>
     <li><a href='/collections'>Mes collections</a></li>
     <li><a href='/locations'>Mes lieux</a></li>
     <li><a href='/mangas'>Mes mangas</a></li>
 </ul>
 
+<!-- <ul>
+    <% 
+    for (var i = 0; i<locations.length; i++) { %>
+        <li><a href="/locations/delete/<%= i %>">💥</a><a href="/locations/filter/<%= locations[i].name %>"><%= locations[i].name %></a></li>
+        <% } 
+    %>
+</ul> -->
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Nombre de tomes</th>
+    </tr>
+    <% 
+    for (var i = 0; i<locations.length; i++) { %>
+        <tr>
+            <td><%= locations[i].id %></td>
+            <td><a href="/locations/filter/<%= locations[i].name %>"><%= locations[i].name %></a></td>
+            <td><%= locations[i].count %></td>
+        </tr>
+        <% } 
+    %>
+</table>
+
+<div>Ajouter un lieu :</div>
 <form action="/locations/add/" method="post">
-    Que dois-je faire ? <input type="text" name="location" id="textInput" autofocus>
+    <input type="text" name="locations" id="textInput" autofocus>
     <button type="submit" id="validate">Valider</button>
 </form>
+
+</body>
+
+</html>

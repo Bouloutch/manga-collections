@@ -5,7 +5,9 @@
         "body-parser": "~1.10.1",
         "cookie-session": "^2.0.0-beta.3",
         "ejs": "~2.1.4",
-        "express": "^4.16.4"
+        "express": "^4.16.4",
+        "jsonfile": "latest",
+        "fs": "latest"
     },
     "author": "brice_bdht <brice.boudehent@gmail.com>",
     "description": "Un gestionnaire de todo list"

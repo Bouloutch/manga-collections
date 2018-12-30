@@ -104,8 +104,29 @@ app.post('/mangas/modif', urlencodedParser, function (req, res) {
             obj = JSON.parse(data); //now it an object
             obj.mangas.forEach(function(element) {
                 if(element.name == req.body.manga) {
+                    obj.collections.forEach(function(collect) {
+                        if(collect.name == element.collection) {
+                            collect.count--;
+                        }
+                    })
+                    obj.collections.forEach(function(collect) {
+                        if(collect.name == req.body.collection) {
+                            collect.count++;
+                        }
+                    })
+                    obj.locations.forEach(function(loc) {
+                        if(loc.name == element.location) {
+                            loc.count--;
+                        }
+                    })
+                    obj.locations.forEach(function(loc) {
+                        if(loc.name == req.body.location) {
+                            loc.count++;
+                        }
+                    })
                     element.collection = req.body.collection;
                     element.location = req.body.location;
+                    element.tomeNumber = req.body.tomeNumber;
                 }
             });
             json = JSON.stringify(obj); //convert it back to json

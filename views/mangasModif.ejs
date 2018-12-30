@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Manga Collections></title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+
+<h1>Mes Mangas</h1>
+
+<ul>
+    <li><a href='/collections'>Mes collections</a></li>
+    <li><a href='/locations'>Mes lieux</a></li>
+    <li><a href='/mangas'>Mes mangas</a></li>
+</ul>
+
+<div>Filtrer les mangas ?</div>
+<form action="/mangas/filter/" method="post">
+    <label for="collection">Collection :</label>
+    <select name="collection">
+        <% 
+        for (var i = 0; i<collections.length; i++) { %>
+            <option><%= collections[i].name %></option>
+            <% } 
+        %>
+    </select>
+    <label for="location">Location :</label>
+    <select name="location">
+        <option value="paris">Paris</option>
+        <option value="tokyo">Tokyo</option>
+    </select>
+    <button type="submit" id="validate">Valider</button>
+</form>
+
+<!-- <ul>
+    <% 
+    for (var i = 0; i<mangas.length; i++) { %>
+        <li><a href="/mangas/delete/<%= i %>">💥</a><%= mangas[i].name %> <a href="/mangas/modif/<%= mangas[i].name %>"> Modifier</a></li>
+        <% } 
+    %>
+</ul> -->
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Numéro de tome</th>
+        <th>Collection</th>
+        <th>Lieu</th>
+        <th>Modifier</th>
+    </tr>
+    <% 
+    for (var i = 0; i<mangas.length; i++) { %>
+        <tr>
+            <td><%= mangas[i].id %></td>
+            <td><%= mangas[i].name %></td>
+            <td><%= mangas[i].tomeNumber %></td>
+            <td><%= mangas[i].collection %></td>
+            <td><%= mangas[i].location %></td>
+            <td><a href="/mangas/modif/<%= mangas[i].id %>"> Modifier</a></td>
+            <!-- <a href="/mangas/delete/<%= i %>">💥</a><%= mangas[i].name %> <a href="/mangas/modif/<%= mangas[i].id %>"> Modifier</a> -->
+        </tr>
+        <% } 
+    %>
+</table>
+
+<div>Modifier ce tome </div>
+<form action="/mangas/modif/" method="post">
+    <label for="manga">Nom du manga :</label>
+    <input type="text" name="manga" id="textInputModif" value=<%= element2modif.name %> autofocus>
+    <label for="tomeNumber">Tome numero :</label>
+    <input type="text" name="tomeNumber" id="textInputModif" value=<%= element2modif.number %>>
+    <label for="collection">Collection :</label>
+    <select name="collection" id="collectionModif">
+        <% 
+        for (var i = 0; i<collections.length; i++) { %>
+            <option><%= collections[i].name %></option>
+            <% } 
+        %>
+    </select>
+    <label for="location">Location :</label>
+    <select name="location">
+        <% 
+        for (var i = 0; i<locations.length; i++) { %>
+            <option><%= locations[i].name %></option>
+            <% } 
+        %>
+    </select>
+    <button type="submit" id="validateModif">Valider</button>
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+h1 {
+    border: 2px dashed;
+    background-color: rgb(59, 59, 59);
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: rgb(40, 41, 41);
+    color: rgb(190, 191, 214);
+    font-family: calibri;
+}
+
+ul {
+    border: 1px solid;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    font-size: 1.5em;
+}
+
+a:visited {
+    color: yellow;
+    text-decoration: none;
+}
+
+a {
+    color: yellow;
+    text-decoration: none;
+}
+  
+table {
+    /* border: 1px solid;
+    border-radius: 10px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    overflow: auto;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border-spacing: 0px;
+}
+  
+th {
+    border-top: 1px solid;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 1.2em;
+}
+
+td {
+    border-top: 1px solid;
+    text-align: center;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
